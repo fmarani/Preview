@@ -11,6 +11,15 @@ class Client(models.Model):
     def __unicode__(self):
         return self.name
 
+class ClientUser(models.Model):
+    client = models.ForeignKey('main.Client', related_name="users")
+    user = models.ForeignKey(User, related_name="clients")
+    can_view = models.BooleanField()
+    can_comment = models.BooleanField()
+    can_approve = models.BooleanField()
+
+    def __unicode__(self):
+        return u"%s (%s)" % (self.client.name, self.user.username)
 
 class Project(models.Model):
     client = models.ForeignKey('main.Client', related_name="projects")

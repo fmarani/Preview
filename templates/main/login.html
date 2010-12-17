@@ -1,0 +1,17 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h1>Login</h1>
+<p>You are required to login first:</p>
+{% if error %}
+<div id="error_msg">{{ error }}
+{% endif %}
+<form method="post">
+{% csrf_token %} 
+<ul>
+    <li><label for="username">Username</label><input type="text" name="username" id="username"/></li>
+    <li><label for="password">Password</label><input type="text" name="password" id="password"/></li>
+    <li><input type="submit" name="submit" id="submit" value="Login"/></li>
+</ul>
+</form>
+{% endblock %}

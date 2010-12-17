@@ -6,6 +6,8 @@ class ClientAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 admin.site.register(Client, ClientAdmin)
 
+admin.site.register(ClientUser)
+
 
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
